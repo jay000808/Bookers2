@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="BMwTJBNdiRr9x0t9TnyadI5GuxmVnoTjhBtdrMDF+dN3kJXf/k+mK9wjJrByvTWJCYLbvL6SAuCFwKDS0wuIdQ==" />
+    <link rel="stylesheet" media="all" href="/assets/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+    <div class="body">
+      <div class="container">
+      <%= form_for(@user) do |f| %>      
+        <% if @user.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h2><%= @user.errors.count %>errors prohibited this obj from being saved:</h2>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+      <h2>User info</h2>
+      <%= form_for(@user) do |f| %>      
+          <div class="field">
+            <label for="username">name</label>
+            <%# <%= f.label :name, "Name" でも良い %> 
+            <%= f.text_field :name,class:"name"%>
+          </div>
+          <div class="field">
+            <label for="user_image">image</label>
+            <%# <%= f.label :profile_image_id, "Image" でも良い %> 
+            <%= f.attachment_field :profile_image,class: "user_image" %>
+          </div>
+          <div class="field">
+            <label for="user_introduction">introduction</label>
+            <%# <%= f.label :introduction, "introduction" でも良い %> 
+            <%= f.text_area :introduction,class:"introduction" %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+
+    <footer>
+        <div class="container">
+  	        <div class="row">
+    	        <div class="col-xs-3 col-xs-offset-9">
+    		        <p>CopyRight Infratop.inc</p>
+    	        </div>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
